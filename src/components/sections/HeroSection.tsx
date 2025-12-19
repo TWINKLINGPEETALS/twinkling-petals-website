@@ -21,6 +21,11 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden hero-gradient-bg"
     >
+      {/* SEO H1 (Invisible to users, visible to Google) */}
+      <h1 className="sr-only">
+        Twinkling Petals – Pre School & Day Care in Bengaluru
+      </h1>
+
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -67,8 +72,8 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* Heading */}
-            <motion.h1
+            {/* Visual Heading (H2 for SEO safety) */}
+            <motion.h2
               className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +81,7 @@ const HeroSection = () => {
             >
               A joyful start to your child's{" "}
               <span className="gradient-rainbow-text">learning journey</span>.
-            </motion.h1>
+            </motion.h2>
 
             {/* Description */}
             <motion.p
@@ -85,8 +90,9 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Where every child blossoms in a safe, fun, and colourful environment. 
-              Our expert educators nurture curiosity and creativity through play-based learning.
+              Where every child blossoms in a safe, fun, and colourful preschool
+              environment in Bengaluru. Our expert educators nurture curiosity and
+              creativity through play-based learning.
             </motion.p>
 
             {/* Program Pills */}
@@ -99,18 +105,17 @@ const HeroSection = () => {
               {programs.map((program, index) => (
                 <motion.span
                   key={program}
-                  className="px-4 py-2 rounded-full bg-white shadow-soft text-sm font-display font-medium text-foreground/80 hover:shadow-card transition-shadow cursor-default"
+                  className="px-4 py-2 rounded-full bg-white shadow-soft text-sm font-display font-medium text-foreground/80"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
                 >
                   {program}
                 </motion.span>
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* CTA */}
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
               initial={{ opacity: 0, y: 20 }}
@@ -136,7 +141,7 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              {infoChips.map((chip, index) => (
+              {infoChips.map((chip) => (
                 <div
                   key={chip.text}
                   className="flex items-center gap-2 text-sm text-muted-foreground"
@@ -148,7 +153,7 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Mascot Card */}
+          {/* Right Card (unchanged visually) */}
           <motion.div
             className="relative flex justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -156,51 +161,20 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="relative">
-              {/* Main Card */}
               <motion.div
                 className="relative w-72 h-80 md:w-80 md:h-96 rounded-3xl bg-white shadow-card overflow-hidden"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                {/* Placeholder for mascot - colorful gradient background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-pastel-pink via-pastel-yellow to-pastel-green" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center p-6">
-                    <motion.div
-                      className="text-8xl mb-4"
-                      animate={{ rotate: [-5, 5, -5] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      🌸
-                    </motion.div>
+                    <div className="text-8xl mb-4">🌸</div>
                     <p className="font-display font-bold text-xl text-foreground/80">
                       Where Learning Blooms
                     </p>
                   </div>
                 </div>
-              </motion.div>
-
-              {/* Floating elements */}
-              <motion.div
-                className="absolute -top-4 -left-4 w-16 h-16 rounded-2xl bg-rainbow-yellow shadow-card flex items-center justify-center text-2xl"
-                animate={{ y: [0, -8, 0], rotate: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                ⭐
-              </motion.div>
-              <motion.div
-                className="absolute -bottom-4 -right-4 w-14 h-14 rounded-2xl bg-rainbow-green shadow-card flex items-center justify-center text-2xl"
-                animate={{ y: [0, 8, 0], rotate: [0, -10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              >
-                🎨
-              </motion.div>
-              <motion.div
-                className="absolute top-1/2 -right-8 w-12 h-12 rounded-full bg-rainbow-blue shadow-card flex items-center justify-center text-xl"
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                📚
               </motion.div>
             </div>
           </motion.div>
