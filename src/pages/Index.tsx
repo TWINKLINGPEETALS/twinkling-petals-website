@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import ProgramsSection from "@/components/sections/ProgramsSection";
@@ -15,7 +17,6 @@ const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -23,7 +24,6 @@ const Index = () => {
     if (prefersReducedMotion) {
       setShowIntro(false);
     } else {
-      // Auto-dismiss intro after animation
       const timer = setTimeout(() => {
         setShowIntro(false);
       }, 2800);
@@ -34,7 +34,19 @@ const Index = () => {
 
   return (
     <>
-      {/* Intro Animation */}
+      {/* SEO HEAD (CRITICAL) */}
+      <Helmet>
+        <title>
+          Twinkling Petals Pre School & Day Care in Bengaluru | Playgroup, Nursery,
+          LKG, UKG
+        </title>
+        <meta
+          name="description"
+          content="Twinkling Petals Pre School & Day Care in Bengaluru offering Playgroup, Nursery, LKG, UKG and Day Care in a safe, joyful and nurturing learning environment."
+        />
+      </Helmet>
+
+      {/* Intro Animation (Visual Only) */}
       <AnimatePresence>
         {showIntro && (
           <motion.div
@@ -42,8 +54,8 @@ const Index = () => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
+            aria-hidden="true"
           >
-            {/* Background decorative shapes */}
             <motion.div
               className="absolute top-20 left-20 w-32 h-32 rounded-full bg-pastel-pink"
               initial={{ scale: 0, opacity: 0 }}
@@ -63,22 +75,31 @@ const Index = () => {
               transition={{ delay: 0.7, duration: 0.6 }}
             />
 
-            {/* Main logo */}
             <Logo size="xl" animate />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Main Content - Always rendered, just hidden during intro */}
-      <motion.div 
-        className="min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showIntro ? 0 : 1 }}
-        transition={{ duration: 0.6, delay: showIntro ? 0 : 0.2 }}
-      >
+      {/* MAIN CONTENT — ALWAYS IN DOM */}
+      <div className="min-h-screen">
         <Navbar showLogo={!showIntro} />
-        
+
         <main>
+          {/* SEO H1 + TEXT (VISIBLE TO GOOGLE) */}
+          <section className="sr-only">
+            <h1>Twinkling Petals – Pre School & Day Care in Bengaluru</h1>
+            <p>
+              Twinkling Petals is a trusted preschool in Bengaluru offering
+              Playgroup, Nursery, LKG, UKG and Day Care programs. We focus on
+              early childhood development through play-based and activity-oriented
+              learning in a safe and nurturing environment.
+            </p>
+            <p>
+              Address: Bengaluru, Karnataka, India. Timings: 8:00 AM – 7:00 PM.
+            </p>
+          </section>
+
+          {/* VISUAL SECTIONS */}
           <HeroSection />
           <ProgramsSection />
           <WhyUsSection />
@@ -89,7 +110,7 @@ const Index = () => {
 
         <Footer />
         <FloatingButtons />
-      </motion.div>
+      </div>
     </>
   );
 };
