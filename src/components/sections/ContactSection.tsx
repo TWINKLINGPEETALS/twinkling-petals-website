@@ -154,16 +154,17 @@ const ContactSection = () => {
           >
             {/* Google Maps Embed */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1334731440616!2d77.6042274750774!3d13.027171187293376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae171a1734cec9%3A0xa829b95a888a9fc8!2sTwinkling%20Petals!5e0!3m2!1sen!2sin!4v1766132053333!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Twinkling Petals Location"
-              className="absolute inset-0"
-            />
+  src="https://www.google.com/maps?q=YOUR+CORRECT+LOCATION&output=embed"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Twinkling Petals Location"
+  className="absolute inset-0"
+/>
+
             
             {/* Fallback overlay with location info */}
             <div className="absolute inset-0 bg-gradient-to-br from-pastel-green/80 to-pastel-blue/80 flex items-center justify-center">
