@@ -64,7 +64,7 @@ const ContactSection = () => {
 
           <div className="h-[400px] rounded-3xl overflow-hidden shadow-card">
             <iframe
-              src="https://www.google.com/maps?q=701+7th+Cross+KHB+Colony+Main+Road+Kaval+Bairasandra+Bengaluru+560032&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15549.094845094429!2d77.6027468957012!3d13.01823395817262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae171a1734cec9%3A0xa829b95a888a9fc8!2sTwinkling%20Petals!5e0!3m2!1sen!2sin!4v1767289467490!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
